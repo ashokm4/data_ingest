@@ -1,23 +1,20 @@
 locals {
-  account_owner = "ashok.mahajan@bigcommerce.com"
+  account_owner = 
   zone          = "us-central1-a"
-  project       = "dynamic-364900"
+  project       = 
   services = [
     "compute.googleapis.com",
   ]
 }
 terraform {
   backend "gcs" {
-  bucket =  "tfstat-carol-4256"
+  bucket =  
   prefix   = "dev"
   }
   required_providers {
     google = {
       source  = "hashicorp/google"
       version = "4.39.0"
-    }
-    daku = {
-      source = "kreuzwerker/docker"
     }
   }
 }
@@ -31,12 +28,6 @@ provider "google" {
 }
 
 
-#provider "golmol" {
-#  project = "ashok-bc-test"
-#  region  = "us-east1"
-#  zone    = "us-east1-a"
-#  alias   = "two"
-#}
 
 
 resource "google_project_service" "enable_apis" {
@@ -59,7 +50,7 @@ module "data_ingest" {
   zone        = local.zone
   machine_type = "e2-standard-4"
   metadata = {
-    "ssh-keys" = "${file("/Users/ashok.mahajan/personal/id_ed25519.pub")}"
+    "ssh-keys" = 
   }
 }
 output "instance_private_ip" {
