@@ -1,0 +1,13 @@
+[Unit]
+Description=The service watches for new files dropped in lading zone directory and updates the metadata schema with the information on new file.
+
+[Service]
+User=ashok.mahajan
+WorkingDirectory=/home/ashok.mahajan/work
+#ExecStart=/bin/bash -c 'cd /home/unixcop/project/ && source venv/bin/activate && python3 test.py'
+ExecStart=/bin/bash -c 'cd /home/ashok.mahajan/work && python3 -O fileWatcher.py'
+
+#replace /home/unixcop/project/ with your Path, venv/bin/activate with your source and test.py with your script name
+
+[Install]
+WantedBy=multi-user.target
